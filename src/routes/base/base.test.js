@@ -1,5 +1,5 @@
 const request = require("supertest");
-const app = require("./index");
+const app = require("../../../index.js");
 
 describe("quick integration tests to ensure app boots", () => {
   test("home route should exsist and return OK", () => {
