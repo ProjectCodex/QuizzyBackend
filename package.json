@@ -4,7 +4,8 @@
   "description": "This is the backend for the quizzy app made for project codex. ",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "NODE_ENV=test jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,9 @@
   "homepage": "https://github.com/ProjectCodex/QuizzyBackend#readme",
   "devDependencies": {
     "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "supertest": "^4.0.2"
   }
 }
