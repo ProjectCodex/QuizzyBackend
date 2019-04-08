@@ -6,3 +6,5 @@ Build Tests
 ## How to run the the project
 
 `docker-compose up`
+
+`docker-compose down`
