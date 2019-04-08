@@ -10,7 +10,11 @@ app.get("/", (req, res) => {
 
 const _PORT = process.env._PORT || 3000;
 
-app.listen(_PORT, err => {
-  if (err) throw new Error("Something went very wrong!");
-  console.log(`Server is running on port: ${_PORT}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(_PORT, err => {
+    if (err) throw new Error("Something went very wrong!");
+    console.log(`Server is running on port: ${_PORT}`);
+  });
+}
+
+module.exports = app;
