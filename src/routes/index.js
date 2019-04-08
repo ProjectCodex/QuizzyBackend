@@ -1,4 +1,4 @@
-const nav = require("./intro/nav.js");
+const nav = require("./base/nav.js");
 
 module.exports = {
   nav
