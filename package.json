@@ -1,0 +1,22 @@
+{
+  "name": "quizzybackend",
+  "version": "1.0.0",
+  "description": "This is the backend for the quizzy app made for project codex. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectCodex/QuizzyBackend.git"
+  },
+  "author": "Codex Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ProjectCodex/QuizzyBackend/issues"
+  },
+  "homepage": "https://github.com/ProjectCodex/QuizzyBackend#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  }
+}
