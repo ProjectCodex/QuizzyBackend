@@ -1,5 +1,3 @@
-const nav = require("./base/nav.js");
+import nav from "./base/nav.js";
 
-module.exports = {
-  nav
-};
+module.exports = { nav };

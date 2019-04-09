@@ -1,17 +1,14 @@
-const express = require("express");
-const app = express();
-const routes = require("./src/routes");
-const middleware = require("./src/middleware");
+import express from "express";
 
+import routes from "./src/routes";
+import middleware from "./src/middleware";
+
+const app = express();
 // Auto Register all middleware
-Object.keys(middleware).map(ware => {
-  app.use(middleware[ware]);
-});
+Object.values(middleware).map(ware => app.use(ware));
 
 // Auto Register all routes
-Object.keys(routes).map(route => {
-  app.use(routes[route]);
-});
+Object.values(routes).map(route => app.use(route));
 
 // Prevent's jest from hanging up during tests
 if (process.env.NODE_ENV !== "test") {

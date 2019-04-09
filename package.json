@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test jest",
-    "start": "node index.js"
+    "start": "nodemon --exec babel-node index.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,12 @@
   },
   "homepage": "https://github.com/ProjectCodex/QuizzyBackend#readme",
   "devDependencies": {
-    "jest": "^24.7.1"
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "jest": "^24.7.1",
+    "nodemon": "^1.18.11"
   },
   "dependencies": {
     "express": "^4.16.4",
