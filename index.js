@@ -1,10 +1,9 @@
-import { express } from "express";
+import express from "express";
 
-import { routes } from "./src/routes";
-import { middleware } from "./src/middleware";
+import routes from "./src/routes";
+import middleware from "./src/middleware";
 
 const app = express();
-
 // Auto Register all middleware
 Object.values(middleware).map(ware => app.use(ware));
 
