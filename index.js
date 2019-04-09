@@ -1,6 +1,6 @@
 import express from "express";
 
-import routes from "./src/routes";
+import { routes } from "./src/routes";
 import middleware from "./src/middleware";
 
 const app = express();
@@ -20,4 +20,4 @@ if (process.env.NODE_ENV !== "test") {
   });
 }
 
-module.exports = app;
+export default app;
