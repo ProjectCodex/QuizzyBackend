@@ -2,10 +2,10 @@
   "name": "quizzybackend",
   "version": "1.0.0",
   "description": "This is the backend for the quizzy app made for project codex. ",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest",
-    "start": "nodemon --exec babel-node index.js",
+    "test": "NODE_ENV=testing jest",
+    "start": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir dist",
     "serve": "node dist/server.js"
   },
@@ -24,11 +24,26 @@
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-jest": "^22.4.1",
     "jest": "^24.7.1",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.18.11",
+    "prettier": "^1.17.0",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "supertest": "^4.0.2"
+    "mongoose": "^5.5.1",
+    "morgan": "^1.9.1",
+    "ramda": "^0.26.1"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost:8080/api/v1/",
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "dist/"
+    ]
   }
 }
