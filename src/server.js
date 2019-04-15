@@ -2,17 +2,16 @@ import express from 'express';
 
 import { connect } from './utils';
 import config from './config';
-import router from './routes';
+import { routes } from './api/routes';
 import { middleware } from './middleware';
 
 const app = express();
-const allMiddleware = { ...middleware, json: express.json() };
 
 // Auto Register all middleware
-Object.values(allMiddleware).map(ware => app.use(ware));
+Object.values(middleware).map(ware => app.use(ware));
 
 // Auto Register all routes
-app.use('/api/v1/', router);
+Object.values(routes).map(route => app.use('/api/v1/', route));
 
 export const start = async () => {
   try {

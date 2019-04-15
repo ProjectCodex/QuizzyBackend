@@ -1,9 +1,9 @@
 import cors from 'cors';
 import morgan from 'morgan';
+import express from 'express';
 
 export const middleware = {
   cors: cors(),
-  morgan: morgan(
-    ':method :url :status :res[content-length] - :response-time ms'
-  ),
+  json: express.json(),
+  morgan: morgan('dev'),
 };
