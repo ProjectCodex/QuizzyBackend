@@ -1,3 +1,3 @@
-import nav from "./base/nav.js";
+import router from './base/nav';
 
-export const routes = { nav };
+export default router;
