@@ -1,4 +1,7 @@
-import questionRouter from './question/question.router';
-import quizRouter from './quiz/quiz.router';
+import buildRoutes from '../../utils/buildRoutes';
 
-export const routes = { questionRouter, quizRouter };
+export const routes = {
+  quizRouter: buildRoutes('/quiz'),
+  categoryRouter: buildRoutes('/category'),
+  questionRouter: buildRoutes('/question'),
+};
