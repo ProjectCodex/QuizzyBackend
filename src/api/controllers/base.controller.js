@@ -51,7 +51,7 @@ export class Controller {
         new: true,
       });
 
-      res.status(200).json({ put: item });
+      res.status(200).json({ item });
     } catch (err) {
       console.error(err);
 

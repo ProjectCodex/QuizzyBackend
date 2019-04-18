@@ -1,9 +1,22 @@
+import { Controller, QuestionController } from '../controllers';
 import { Quiz, Category, Question, User } from '../models';
 import buildRoutes from '../../utils/buildRoutes';
 
 export const routes = {
-  quizRouter: buildRoutes('/quiz', Quiz),
-  categoryRouter: buildRoutes('/category', Category),
-  questionRouter: buildRoutes('/question', Question),
-  userRouter: buildRoutes('/user', User),
+  quizRouter: buildRoutes({
+    resource: 'quiz',
+    controller: new Controller(Quiz),
+  }),
+  categoryRouter: buildRoutes({
+    resource: 'category',
+    controller: new Controller(Category),
+  }),
+  questionRouter: buildRoutes({
+    resource: 'question',
+    controller: new QuestionController(Question),
+  }),
+  userRouter: buildRoutes({
+    resource: 'user',
+    controller: new Controller(User),
+  }),
 };
