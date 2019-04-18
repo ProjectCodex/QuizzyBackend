@@ -1,6 +1,12 @@
 import mongoose from 'mongoose';
 
-import { answerSchema } from './answer.model';
+export const answerSchema = new mongoose.Schema({
+  text: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+});
 
 const questionSchema = new mongoose.Schema(
   {
@@ -28,8 +34,6 @@ const questionSchema = new mongoose.Schema(
     },
     correctAnswer: {
       type: mongoose.SchemaTypes.ObjectId,
-      ref: 'answer',
-      required: true,
     },
     answers: [answerSchema],
   },

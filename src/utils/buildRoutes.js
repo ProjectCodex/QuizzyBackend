@@ -1,28 +1,22 @@
 import express from 'express';
 
+import { Controller } from '../api/controllers';
+
 const router = express.Router();
 
-const controller = (req, res) => {
-  return res.status(200).json({ success: 'true' });
-};
+const buildRoutes = (resource = '/', model) => {
+  const controller = new Controller(model);
 
-const postController = (req, res) => {
-  return res.status(201).json({
-    success: 'true',
-    message: 'Post was made successfully',
-  });
-};
-
-const buildRoutes = (resource = '/') => {
   router
     .route(resource)
-    .get(controller)
-    .post(postController);
+    .get(controller.list)
+    .post(controller.create);
 
   router
     .route(`${resource}/:id`)
-    .put(controller)
-    .delete(controller);
+    .get(controller.get)
+    .put(controller.update)
+    .delete(controller.delete);
 
   return router;
 };

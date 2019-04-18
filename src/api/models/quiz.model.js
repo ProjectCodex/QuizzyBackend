@@ -17,7 +17,6 @@ const quizSchema = new mongoose.Schema(
     createdBy: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'user',
-      required: true,
     },
   },
   { timestamps: true }
