@@ -6,6 +6,10 @@ export const answerSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  correct: {
+    type: Number,
+    required: true,
+  },
 });
 
 const questionSchema = new mongoose.Schema(
@@ -31,9 +35,6 @@ const questionSchema = new mongoose.Schema(
       required: true,
       enum: ['easy', 'medium', 'hard'],
       default: 'easy',
-    },
-    correctAnswer: {
-      type: mongoose.SchemaTypes.ObjectId,
     },
     answers: [answerSchema],
   },

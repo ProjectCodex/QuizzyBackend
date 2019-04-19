@@ -1,2 +1,2 @@
 export * from './base.controller';
-export * from './question.controller';
+export * from './auth.controller';

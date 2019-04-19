@@ -17,7 +17,7 @@ export class Controller {
     } catch (err) {
       console.error(err);
 
-      res.status(400).json({ message: 'Invalid Request Data' });
+      res.status(500).json({ message: 'Server Error' });
     }
   }
 
@@ -29,7 +29,7 @@ export class Controller {
     } catch (err) {
       console.error(err);
 
-      res.status(400).json({ message: 'Invalid Request Data' });
+      res.status(500).json({ message: 'Server Error' });
     }
   }
 
@@ -41,7 +41,7 @@ export class Controller {
     } catch (err) {
       console.error(err);
 
-      res.status(400).json({ message: 'Invalid Request Data' });
+      res.status(500).json({ message: 'Server Error' });
     }
   }
 
@@ -55,7 +55,7 @@ export class Controller {
     } catch (err) {
       console.error(err);
 
-      res.status(400).json({ message: 'Invalid Request Data' });
+      res.status(500).json({ message: 'Server Error' });
     }
   }
   async delete(req, res) {
@@ -66,7 +66,7 @@ export class Controller {
     } catch (err) {
       console.error(err);
 
-      res.status(400).json({ message: 'Invalid Request Data' });
+      res.status(500).json({ message: 'Server Error' });
     }
   }
 }

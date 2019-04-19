@@ -1,22 +1,29 @@
-import { Controller, QuestionController } from '../controllers';
+import { Controller } from '../controllers';
 import { Quiz, Category, Question, User } from '../models';
-import buildRoutes from '../../utils/buildRoutes';
+import { buildRoutes } from '../../utils';
+import { routeGuard } from '../../middleware';
+
+import authRouter from './auth.router';
 
 export const routes = {
   quizRouter: buildRoutes({
-    resource: 'quiz',
+    resource: 'quizzes',
     controller: new Controller(Quiz),
+    guard: routeGuard,
   }),
   categoryRouter: buildRoutes({
-    resource: 'category',
+    resource: 'categories',
     controller: new Controller(Category),
+    guard: routeGuard,
   }),
   questionRouter: buildRoutes({
-    resource: 'question',
-    controller: new QuestionController(Question),
+    resource: 'questions',
+    controller: new Controller(Question),
+    guard: routeGuard,
   }),
   userRouter: buildRoutes({
-    resource: 'user',
+    resource: 'users',
     controller: new Controller(User),
   }),
+  authRouter,
 };

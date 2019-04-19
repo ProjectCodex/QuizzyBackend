@@ -1,29 +1,32 @@
 import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
 
 import { connect } from './utils';
 import config from './config';
 import { routes } from './api/routes';
-import { middleware } from './middleware';
 
 const app = express();
 
-// Auto Register all middleware
-Object.values(middleware).map(ware => app.use(ware));
+// Register all app middleware
+app.use(cors());
+app.use(express.json());
+app.use(morgan('dev'));
 
-// Auto Register all routes
+// Register all routes
 Object.values(routes).map(route => app.use('/api/v1/', route));
 
 export const start = async () => {
   try {
+    // Connect to the database
     await connect();
 
+    //Start the api server
     app.listen(config.port, () => {
-      console.log(
-        `Connect with API at http://localhost:${config.port}/api/v1/`
-      );
+      console.log(`API running at http://localhost:${config.port}/api/v1/`);
     });
-  } catch (e) {
-    console.error(e);
+  } catch (err) {
+    console.error(err);
   }
 };
 
