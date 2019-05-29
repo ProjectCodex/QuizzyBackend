@@ -14,7 +14,11 @@ export const routeGuard = async (req, res, next) => {
 
   try {
     const payload = await verifyToken(token);
-    const user = await User.findById(payload._id, '-password', { lean: true });
+    const user = await User.findById(payload.id, '-password', { lean: true });
+
+    if (!user) {
+      return res.status(401).send({ message: 'Unauthorized' });
+    }
 
     req.user = user;
 

@@ -5,6 +5,6 @@ import { User } from '../models';
 
 const router = express.Router();
 
-router.route(`/login`).post(new AuthController(User).login);
+router.route('/').post(new AuthController(User).login);
 
 export default router;
