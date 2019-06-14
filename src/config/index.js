@@ -4,4 +4,6 @@ import test from './test.config';
 
 const envConfigs = { dev, prod, test };
 
+console.log(process.env.NODE_ENV);
+
 export default envConfigs[process.env.NODE_ENV || 'dev'];

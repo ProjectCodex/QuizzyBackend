@@ -4,7 +4,7 @@
   "description": "This is the backend for the quizzy app made for project codex. ",
   "main": "src/index.js",
   "scripts": {
-    "test": "NODE_ENV=testing jest",
+    "test": "NODE_ENV=test jest",
     "start": "nodemon --exec babel-node -r node_modules/dotenv/config src/index.js",
     "build": "babel src --out-dir dist",
     "serve": "node dist/server.js"
@@ -28,11 +28,13 @@
     "eslint": "^5.16.0",
     "eslint-plugin-jest": "^22.4.1",
     "jest": "^24.7.1",
+    "mongodb-memory-server": "^5.1.4",
     "nodemon": "^1.18.11",
     "prettier": "^1.17.0",
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "@shelf/jest-mongodb": "^1.0.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
@@ -44,10 +46,10 @@
   },
   "jest": {
     "verbose": true,
-    "testURL": "http://localhost:8080/api/v1/",
-    "testEnvironment": "node",
+    "testURL": "http://localhost:8080/api/v1",
     "testPathIgnorePatterns": [
       "dist/"
-    ]
+    ],
+    "preset": "@shelf/jest-mongodb"
   }
 }
