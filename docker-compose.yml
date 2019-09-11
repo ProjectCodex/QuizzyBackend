@@ -9,6 +9,10 @@ services:
       - 8080:8080
     links:
       - mongo
+    environment:
+      NODE_ENV: production
+      MONGO_URL: mongodb://mongo:27017/web
+    command: ['npm', 'start']
   mongo:
     container_name: mongo
     image: mongo:latest

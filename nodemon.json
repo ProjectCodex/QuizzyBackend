@@ -1,9 +1,10 @@
 {
   "restartable": "rs",
-  "ignore": [".git", "dist"],
+  "ignore": [".git", "dist", "node_modules/**/node_modules"],
   "verbose": true,
   "watch": ["src/**/*.js"],
   "env": {
     "NODE_ENV": "dev"
-  }
+  },
+  "ext": "js json"
 }

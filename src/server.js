@@ -1,30 +1,34 @@
 import express from 'express';
 
-import { connect } from './utils';
 import config from './config';
-import router from './routes';
-import { middleware } from './middleware';
+import connectToDb from './utils/db';
+import setUpRoutes from './api/routes';
+import setUpMiddleware from './middleware';
 
+// Instantiate the server
 const app = express();
-const allMiddleware = { ...middleware, json: express.json() };
 
-// Auto Register all middleware
-Object.values(allMiddleware).map(ware => app.use(ware));
+// Register all app middleware
+setUpMiddleware(app);
 
-// Auto Register all routes
-app.use('/api/v1/', router);
+// Register all routes
+setUpRoutes(app);
 
 export const start = async () => {
   try {
-    await connect();
+    // Connect to the database
+    await connectToDb();
 
-    app.listen(config.port, () => {
+    //Start the api server
+    app.listen(config.port, () =>
       console.log(
-        `Connect with API at http://localhost:${config.port}/api/v1/`
-      );
-    });
-  } catch (e) {
-    console.error(e);
+        `API running at http://localhost:${config.port}/api/${
+          config.apiVersion
+        }/`
+      )
+    );
+  } catch (err) {
+    console.error(err);
   }
 };
 
